@@ -1,0 +1,54 @@
+<div ng-controller="SidebarController">
+  <div class="col-md-2 fixed" ng-class="hideFilters()">
+    <div id="termFilters" style="position: relative;">
+      <h3 class="page-header no-top-margin">Filters</h3>
+
+      <div ng-repeat="filter in filters">
+        <div ng-if="filter.toggles.length">
+          <h4 class="slight-top-margin">{{ filter.caption }}:</h4>
+          <div class="checkbox" ng-repeat="t in filter.toggles|orderBy:'-count'">
+            <label>
+              <input type="checkbox" ng-checked="t.checked" ng-model="t.checked"><div class="{{ filter.cssClass(t.key)||'' }}">{{ t.key }} <span class="badge alert-info">{{ t.count }}</span></div>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="dateFilters">
+      <h4 class="slight-top-margin">Time interval:</h4>
+      <form>
+        <input type="checkbox" ng-model="fromSet" ng-model-options="{ getterSetter: true }">
+        <label for="intervalFrom">From:</label>
+        <fieldset ng-disabled="!fromSet()">
+          <input type="datetime-local" ng-model-options="{ updateOn: 'default blur', timezone: 'UTC', getterSetter: true, debounce: 1000 }" ng-model="from" id="intervalFrom" class="form-control">
+        </fieldset>
+
+        <input type="checkbox" ng-model="toSet" ng-model-options="{ getterSetter: true }">
+        <label for="intervalTo">To:</label>
+        <fieldset ng-disabled="!toSet()">
+          <input type="datetime-local" ng-model-options="{ updateOn: 'default blur', timezone: 'UTC', getterSetter: true, debounce: 1000 }" ng-model="to" id="intervalTo" class="form-control">
+        </fieldset>
+      </form>
+    </div>
+
+    <div id="viewSettings">
+      <h3 class="page-header">View settings</h3>
+      <form ng-model-options="{ getterSetter: true }" class="form-inline">
+        <label for="recordCount">Records per request: </label>
+        <select id="recordCount" class="form-control" ng-model="recordCount" ng-options="c for c in allowedSizes"></select>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div ng-controller="QueryController" scroll-glue>
+  <div class="scrollit" ng-class="onFilterShow('col-lg-10 col-lg-offset-2', 'col-lg-12')">
+    <h3 class="no-top-margin" ng-if="items[0].type === '_notready'">Loading, please stand by</h3>
+    <pre id="logView"
+         ng-if="items[0].type !== '_notready'"
+         ng-mousedown="autorefresh(false)"
+         ng-mouseup="autorefresh(true)"><span ng-show="!items.length">No results.</span><span ng-repeat="item in items.slice().reverse()"><span ng-repeat="field in logFields" class="{{ field.cssClass(item[field.name])||'' }}">{{ (field.map(item[field.name]) || item[field.name]) | padr:field.padding }} </span>
+</span></pre>
+  </div>
+</div>

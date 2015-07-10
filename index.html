@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="build/vendor.min.js"></script>
+    <script src="build/ElasticView.js"></script>
+    <meta name="viewport" content="initial-scale=1"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/intro.js/minified/introjs.min.css">
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css">
+    <link rel="stylesheet" href="css/doc.css">
+    <title>ElasticLogView</title>
+  </head>
+
+  <body ng-app="elasticview">
+    <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="NavbarController">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="" class="navbar-brand" ng-click="toggleFilters()" id="filterHamburger"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+          <a href="" class="navbar-brand">ElasticLogView</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li ng-if="baseFilter()"><p class="navbar-text">Base filter: <a href="" ng-bind="baseFilter()"></a></p></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right" ng-controller="ShareLinkController">
+            <li class="dropdown" dropdown on-toggle="toggled(open)" auto-close="outsideClick" ng-if="enabled">
+              <a class="dropdown-toggle" href="" dropdown-toggle>
+                <span class="glyphicon glyphicon-share"></span>
+              </a>
+
+              <div class="dropdown-menu dropdown-padding dropdown-fixed-width">
+                <div class="row row-eq-height">
+                  <div class="col-md-12">
+                    <div class="input-group">
+                      <span class="input-group-addon" id="link-addon">
+                        <span>{{ currentOption().caption }}</span>
+                      </span>
+                      <span class="input-spinner" us-spinner spinner-key="{{ spinnerId }}"></span>
+                      <input type="text" class="form-control" ng-model="link" ng-model-options="{ getterSetter: true }" aria-describedby="link-addon" select-on-click>
+                    </div>
+
+                    <h4>Link content:</h4>
+                    <div class="radio" ng-repeat="rb in radios">
+                      <label>
+                        <input type="radio" name="link-options" id="{{ rb.id }}" ng-model="currentOption.id" ng-value="rb.id" ng-change="generateLink(rb.cb)">
+                        {{ rb.caption }}
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="navbar-text">Autorefresh:</li>
+            <li>
+              <form class="navbar-form" ng-model-options="{ getterSetter: true }">
+                <div class="btn-group" id="autorefreshToggle">
+                  <label class="btn btn-default" ng-model="autorefresh" btn-radio="true">On</label>
+                  <label class="btn btn-default" ng-model="autorefresh" btn-radio="false">Off</label>
+                </div>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div ng-view></div>
+  </body>
+</html>

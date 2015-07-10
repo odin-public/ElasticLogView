@@ -1,0 +1,23 @@
+{
+  "name": "ElasticView",
+  "private": true,
+  "version": "0.0.0",
+  "repository": "https://git.sw.ru/projects/DC/repos/elasticview",
+  "scripts": {
+    "postinstall": "bower update",
+    "prestart": "npm update"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-uglify": "~0.5.0",
+    "grunt-contrib-concat": "~0.5.1",
+    "grunt-contrib-watch": "~0.6.1",
+    "http-server": "0.8.0"
+  },
+  "jshintConfig": {
+    "globals": {
+      "angular": false,
+      "_": false
+    }
+  }
+}

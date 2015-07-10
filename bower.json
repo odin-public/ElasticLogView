@@ -1,0 +1,19 @@
+{
+  "name": "elasticview",
+  "dependencies": {
+    "angular": "1.4.x",
+    "elasticsearch": "*",
+    "angular-route": "~1.4.0",
+    "angular-bootstrap": "*",
+    "angular-scroll-glue": "*",
+    "underscore": "*",
+    "bootstrap": "*",
+    "intro.js": "*",
+    "moment": "*",
+    "angular-loading-bar": "*",
+    "angular-spinner": "*"
+  },
+  "resolutions": {
+    "angular": "1.4.x"
+  }
+}

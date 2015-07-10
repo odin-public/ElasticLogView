@@ -1,0 +1,22 @@
+<div class="bs-docs-header">
+  <div class="container">
+    <h1>Welcome to ElasticLogView!</h1>
+    <p>Please enter the base filter value below and click 'Go'</p>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="col-lg-6">
+    <form name="form" novalidate>
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Filter value" ng-model="baseFilter" name="baseFilter" ev-uuid>
+
+        <span class="input-group-btn">
+          <a ng-href="/#/{{ baseFilter }}" class="btn btn-default" ng-click="go()">Go</a>
+        </span>
+      </div>
+      <span class="text-danger" ng-show="form.baseFilter.$error.uuid">The value has not passed validator!</span>
+    </form>
+  </div>
+</div>
