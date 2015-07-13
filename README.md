@@ -3,6 +3,8 @@ ElasticLogView
 
 This project aims to provide a simple interface for viewing logs streaming in real-time.
 
+![elv_load_stream](https://cloud.githubusercontent.com/assets/991591/8655408/8d00f014-2999-11e5-9658-105913b0e2d0.png)
+
 
 ## Architecture
 
