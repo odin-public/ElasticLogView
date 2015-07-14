@@ -55,8 +55,8 @@ grunt.initConfig({
     uglify: {
         options: {
             banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
-            sourceMap : true,
-            sourceMapIncludeSources : true,
+            sourceMap: true,
+            sourceMapIncludeSources: true,
             sourceMapIn : '.tmp/<%= pkg.name %>.js.map'
         },
         build: {

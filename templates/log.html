@@ -48,7 +48,7 @@
     <div id="logView"
          ng-if="items[0].type !== '_notready'"
          ng-mousedown="autorefresh(false)"
-         ng-mouseup="autorefresh(true)"><span ng-show="!items.length">No results.</span><span class="animate-repeat" ng-repeat="item in items.slice().reverse()"><span ng-repeat="field in logFields" class="{{ field.cssClass(item[field.name])||'' }}">{{ (field.map(item[field.name]) || item[field.name]) | padr:field.padding }} </span>
+         ng-mouseup="autorefresh(true)"><span ng-show="!items.length">No results.</span><span class="animate-repeat" ng-repeat="item in items.slice().reverse() track by item['@timestamp']"><span ng-repeat="field in logFields" class="{{ field.cssClass(item[field.name])||'' }}">{{ (field.map(item[field.name]) || item[field.name]) | padr:field.padding }} </span>
 </span></pre>
   </div>
 </div>

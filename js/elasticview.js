@@ -43,7 +43,7 @@
           };
 
           aggregate(aggs, term).then(function(result) {
-            console.log(result);
+            //console.log(result);
             state.termsFilter(filter, result.aggregations[filter.field + 's'].buckets, filterPos);
           });
         });
@@ -265,7 +265,9 @@
           }
 
           response.hits.hits.forEach(function(item, i) {
-            $scope.items[i] = item._source;
+            if (!$scope.items[i] || $scope.items[i]['@timestamp'] !== item._source['@timestamp']) {
+                $scope.items[i] = item._source;
+            }
           });
           if (!state.intro) {
             showIntro(config.intro, config.introVersion);

@@ -60,7 +60,7 @@
             allowedSizes: [100, 200, 500, 1000],
 
             // How often to refresh the page, in milliseconds
-            refreshInterval: 30000,
+            refreshInterval: 1000,
 
             // ElasticSearch API version
             apiVersion: '1.4',
