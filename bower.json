@@ -11,7 +11,8 @@
     "intro.js": "*",
     "moment": "*",
     "angular-loading-bar": "*",
-    "angular-spinner": "*"
+    "angular-spinner": "*",
+    "angular-animate": "~1.4.2"
   },
   "resolutions": {
     "angular": "1.4.x"

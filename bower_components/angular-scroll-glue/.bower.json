@@ -1,6 +1,6 @@
 {
   "name": "angular-scroll-glue",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "homepage": "https://github.com/Luegg/angularjs-scroll-glue",
   "authors": [
     "Lukas Wegmann"
@@ -16,11 +16,11 @@
     "**/.*",
     "test"
   ],
-  "_release": "2.0.5",
+  "_release": "2.0.6",
   "_resolution": {
     "type": "version",
-    "tag": "v2.0.5",
-    "commit": "87f35c739813262b1e8ad3ed24d3c9e8d9a7ed27"
+    "tag": "v2.0.6",
+    "commit": "2fdb152ce71d9907e81d7b937f696f6d1a322479"
   },
   "_source": "git://github.com/Luegg/angularjs-scroll-glue.git",
   "_target": "*",

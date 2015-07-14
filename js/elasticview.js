@@ -1,7 +1,7 @@
 (function(angular, _) {
   var app = angular.module('elasticview', ['elasticsearch', 'ngRoute', 'angularSpinner',
                                            'ui.bootstrap', 'luegg.directives',
-                                           'angular-loading-bar',
+                                           'angular-loading-bar', 'ngAnimate',
                                            'ev.config', 'ev.eswrapper', 'ev.statemanager',
                                            'ev.range', 'ev.sharelink', 'ev.errorhandler']);
 
@@ -43,7 +43,7 @@
           };
 
           aggregate(aggs, term).then(function(result) {
-            console.log(result);
+            //console.log(result);
             state.termsFilter(filter, result.aggregations[filter.field + 's'].buckets, filterPos);
           });
         });
@@ -253,7 +253,7 @@
           }
         }, config.refreshInterval);
 
-        console.log(response);
+        //console.log(response);
 
         if (state.autorefresh() || !$scope.items.length) {
           if (response.hits.hits.length < state.count()) {
@@ -267,7 +267,6 @@
           response.hits.hits.forEach(function(item, i) {
             $scope.items[i] = item._source;
           });
-
           if (!state.intro) {
             showIntro(config.intro, config.introVersion);
             state.intro = true;

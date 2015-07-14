@@ -60,10 +60,10 @@
             allowedSizes: [100, 200, 500, 1000],
 
             // How often to refresh the page, in milliseconds
-            refreshInterval: 1000,
+            refreshInterval: 30000,
 
             // ElasticSearch API version
-            apiVersion: '1.3',
+            apiVersion: '1.4',
 
             // Version of the introduction doc, change this any time you change the intro,
             // so that it gets shown for users

@@ -30,25 +30,25 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
     <script src="src/scrollglue.js"></script>
-
+    
     <script>
       angular.module('demo', ['luegg.directives']);
-
+    
       function ItemsCtrl($scope, $timeout){
         $scope.items = ['1', '2', '3'];
         var counter = $scope.items.slice(-1)[0];
         $scope.glued = true;
-
+        
         function addItem(){
           $scope.items.push(++counter);
           $timeout(addItem, 5000);
         }
-
+        
         $timeout(addItem, 1000);
       }
     </script>
   </head>
-
+  
   <body ng-app="demo" ng-controller="ItemsCtrl">
     <h1>Simple</h1>
     <p>To activate the scroll glue on an element just add the scroll-glue attribute.</p>
@@ -103,5 +103,5 @@
         <span ng-repeat="item in items">{{item}}</span>
       </div>
   </body>
-
+  
 </html>

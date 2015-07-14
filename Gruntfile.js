@@ -10,6 +10,7 @@ module.exports = function(grunt) {
           'bower_components/spin.js/spin.js',
           'bower_components/angular/angular.min.js',
           'bower_components/angular-route/angular-route.min.js',
+          'bower_components/angular-animate/angular-animate.min.js',
           'bower_components/elasticsearch/elasticsearch.angular.min.js',
           'bower_components/angular-bootstrap/ui-bootstrap.min.js',
           'bower_components/angular-scroll-glue/src/scrollglue.js',
