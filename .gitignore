@@ -37,6 +37,5 @@ npm-debug.log
 /build
 .env
 .tmp
-/node_modules
 /bower_components
 bo
