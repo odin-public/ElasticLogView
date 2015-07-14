@@ -83,9 +83,7 @@ body {
     max-height: 40px;
 }
 .animate-repeat span {
-    display: inline-block;
     font-size: 14px;
-    margin: 3px 5px;
 }
 .animate-repeat.ng-move,
 .animate-repeat.ng-move span,

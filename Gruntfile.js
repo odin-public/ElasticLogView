@@ -66,14 +66,17 @@ grunt.initConfig({
         }
     },
     watch: {
+        style: {
+            files: [
+                'css/**/*.css',
+            ],
+            tasks: ['concat:app_css']
+        },
         scripts: {
             files: [
-                '**/*.js',
-                '!build/**',
-                '!bower_components/**/*.js',
-                '!node_modules/**/*.js'
+                'js/**/*.js',
             ],
-            tasks: ['concat', 'uglify']
+            tasks: ['concat:elv', 'uglify']
         }
     }
 });
