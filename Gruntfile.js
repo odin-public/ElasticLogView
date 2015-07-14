@@ -20,15 +20,21 @@ module.exports = function(grunt) {
         dest: 'build/vendor.min.js'
       },
       elv: {
+        options : {
+            sourceMap :true
+        },
         src: [
           'js/*.js'
         ],
-        dest: 'build/<%= pkg.name %>.js'
+        dest: '.tmp/<%= pkg.name %>.js'
       }
     },
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
+        sourceMap : true,
+        sourceMapIncludeSources : true,
+        sourceMapIn : '.tmp/<%= pkg.name %>.js.map'
       },
       build: {
         files: {
@@ -41,7 +47,7 @@ module.exports = function(grunt) {
         files: ['**/*.js', '!build/*.js',
                 '!bower_components/**/*.js',
                 '!node_modules/**/*.js'],
-        tasks: ['concat']
+        tasks: ['concat', 'uglify']
       }
     }
   });

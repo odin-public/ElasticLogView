@@ -43,7 +43,7 @@
           };
 
           aggregate(aggs, term).then(function(result) {
-            //console.log(result);
+            console.log(result);
             state.termsFilter(filter, result.aggregations[filter.field + 's'].buckets, filterPos);
           });
         });
