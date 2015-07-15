@@ -1,15 +1,15 @@
 <!doctype html>
-<html>
+<html log-view-scroll>
   <head>
     <script src="build/js/vendor.min.js"></script>
     <script src="build/js/ElasticView.js"></script>
     <meta name="viewport" content="initial-scale=1"/>
     <link rel="stylesheet" href="build/css/vendor.min.css">
-    <link rel="stylesheet" href="build/css/ElasticView.css">
+    <link rel="stylesheet" href="build/css/doc.css">
     <title>ElasticLogView</title>
   </head>
 
-  <body ng-app="elasticview">
+  <body log-view-scroll ng-app="elasticview">
     <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="NavbarController">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -70,6 +70,6 @@
       </div>
     </nav>
 
-    <div ng-view></div>
+    <div class="main_view" ng-view></div>
   </body>
 </html>

@@ -38,4 +38,5 @@ function by default validates a UUID value.
 ## Installation
 
 1. Run `npm install` after cloning to update all required dependencies.
+1. Run `bower install` to upload lib sources
 1. Run `grunt` to build all sources

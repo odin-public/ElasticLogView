@@ -14,7 +14,7 @@ grunt.initConfig({
             src: [
                 'css/*.css'
             ],
-            dest: 'build/css/<%= pkg.name %>.css'
+            dest: 'build/css/doc.css'
         },
         vendor: {
             src: [
