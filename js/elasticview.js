@@ -90,17 +90,6 @@
     }
   ]);
 
-app.directive('logViewScroll', function() {
-    return {
-        restrict: 'A',
-        link: function($scope, element, attrs) {
-            element.on('scroll', function(){
-                console.log(this.scrollTop);
-            })
-          }
-      }
-})
-/*
   app.directive('selectOnClick', function () {
     return {
       restrict: 'A',
@@ -114,7 +103,6 @@ app.directive('logViewScroll', function() {
       }
     };
   });
-*/
 
   app.config([
     '$routeProvider',
