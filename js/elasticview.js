@@ -97,7 +97,7 @@
       link: function (scope, element, attrs) {
         element.on('click', function () {
           if (!window.getSelection().toString()) {
-            // Required for mobile Safari
+            //  Required for mobile Safari
             this.setSelectionRange(0, this.value.length);
           }
         });
@@ -265,9 +265,7 @@
           }
 
           response.hits.hits.forEach(function(item, i) {
-            if (!$scope.items[i] || $scope.items[i]['@timestamp'] !== item._source['@timestamp']) {
                 $scope.items[i] = item._source;
-            }
           });
           if (!state.intro) {
             showIntro(config.intro, config.introVersion);

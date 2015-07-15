@@ -35,7 +35,8 @@ grunt.initConfig({
         },
         elv: {
             options : {
-                sourceMap :true
+                sourceMap :true,
+                separator: ';',
             },
             src: [
                 'js/*.js'
@@ -44,9 +45,15 @@ grunt.initConfig({
         }
     },
     copy: {
-        fonts: {
+        tmp_script: {
             expand: true,
             dot: true,
+            cwd: '.tmp/',
+            src: '*',
+            dest: 'build/js/',
+        },
+        fonts: {
+            expand: true,
             cwd: 'bower_components/bootstrap/fonts/',
             src: '*',
             dest: 'build/fonts/',
@@ -55,9 +62,6 @@ grunt.initConfig({
     uglify: {
         options: {
             banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n',
-            sourceMap: true,
-            sourceMapIncludeSources: true,
-            sourceMapIn : '.tmp/<%= pkg.name %>.js.map'
         },
         build: {
             files: {
@@ -76,7 +80,7 @@ grunt.initConfig({
             files: [
                 'js/**/*.js',
             ],
-            tasks: ['concat:elv', 'uglify']
+            tasks: ['concat:elv', 'copy:tmp_script']
         }
     }
 });
@@ -87,5 +91,5 @@ grunt.initConfig({
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-copy');
 
-    grunt.registerTask('default', ['concat', 'copy', 'uglify']);
+    grunt.registerTask('default', ['concat', 'copy:fonts', 'uglify']);
 };
