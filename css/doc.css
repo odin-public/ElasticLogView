@@ -1,23 +1,33 @@
-body {
-  padding-top: 70px;
+html {
+    height: 100%;
 }
-
+body {
+    padding-top: 70px;
+    height: 100%;
+}
+.main_view {
+    height: 100%;
+}
+.main_view__scroll {
+    height: 100%; 
+    overflow-y: auto;
+}
 .bs-docs-header, .bs-docs-masthead {
-  position: relative;
-  padding: 30px 0px;
-  color: #CDBFE3;
-  text-align: center;
-  text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
-  background-color: #6F5499;
-  background-image: linear-gradient(to bottom, #563D7C 0px, #6F5499 100%);
-  background-repeat: repeat-x;
+    position: relative;
+    padding: 30px 0px;
+    color: #CDBFE3;
+    text-align: center;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+    background-color: #6F5499;
+    background-image: linear-gradient(to bottom, #563D7C 0px, #6F5499 100%);
+    background-repeat: repeat-x;
 }
 
 .bs-docs-header {
-  padding-top: 60px;
-  padding-bottom: 60px;
-  font-size: 24px;
-  text-align: left;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    font-size: 24px;
+    text-align: left;
 }
 
 .bs-docs-header {
@@ -53,18 +63,58 @@ body {
 }
 
 .fixed {
+  z-index: 1;
+  padding: 10px;
+  background: #fff;
   position: fixed;
   max-height: 90vh;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
-.scrollit {
-  float: left;
-}
-
 .input-spinner {
   display: inline-block;
   vertical-align: middle;
   margin-left: -1em;
+}
+.animate-repeat {
+    font-size: 1px;
+    display: block;
+}
+.animate-repeat,
+.animate-repeat span {
+    line-height: 14px;
+    list-style: none;
+    box-sizing: border-box;
+    max-height: 40px;
+}
+.animate-repeat span {
+    font-size: 14px;
+}
+.animate-repeat.ng-move,
+.animate-repeat.ng-move span,
+.animate-repeat.ng-enter,
+.animate-repeat.ng-enter span,
+.animate-repeat.ng-leave span,
+.animate-repeat.ng-leave {
+      -webkit-transition:all linear 0.5s;
+        transition:all linear 0.5s;
+}
+.animate-repeat.ng-leave,
+.animate-repeat.ng-leave span,
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-move.ng-move-active span,
+.animate-repeat.ng-enter.ng-enter-active span,
+.animate-repeat.ng-enter.ng-enter-active {
+    opacity:1;
+    max-height:40px;
+}
+.animate-repeat.ng-leave.ng-leave-active, 
+.animate-repeat.ng-leave.ng-leave-active span,
+.animate-repeat.ng-move span,
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter span,
+.animate-repeat.ng-enter {
+    opacity:0;
+    max-height:0;
 }

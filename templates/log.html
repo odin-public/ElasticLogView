@@ -42,13 +42,22 @@
   </div>
 </div>
 
-<div ng-controller="QueryController" scroll-glue>
+<div class="main_view__scroll" ng-controller="QueryController" scroll-glue>
   <div class="scrollit" ng-class="onFilterShow('col-lg-10 col-lg-offset-2', 'col-lg-12')">
     <h3 class="no-top-margin" ng-if="items[0].type === '_notready'">Loading, please stand by</h3>
-    <pre id="logView"
+    <div id="logView"
          ng-if="items[0].type !== '_notready'"
          ng-mousedown="autorefresh(false)"
-         ng-mouseup="autorefresh(true)"><span ng-show="!items.length">No results.</span><span ng-repeat="item in items.slice().reverse()"><span ng-repeat="field in logFields" class="{{ field.cssClass(item[field.name])||'' }}">{{ (field.map(item[field.name]) || item[field.name]) | padr:field.padding }} </span>
-</span></pre>
+         ng-mouseup="autorefresh(true)">
+            <span ng-show="!items.length">No results.</span>
+            <span class="animate-repeat"
+                 ng-repeat="item in items track by item['@timestamp']">
+                <span
+                     ng-repeat="field in logFields"
+                     class="{{ field.cssClass(item[field.name])||'' }}">
+                            {{ (field.map(item[field.name]) || item[field.name]) | padr:field.padding }}
+                     </span>
+            </span>
+    </div>
   </div>
 </div>

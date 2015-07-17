@@ -63,7 +63,7 @@
             refreshInterval: 1000,
 
             // ElasticSearch API version
-            apiVersion: '1.3',
+            apiVersion: '1.4',
 
             // Version of the introduction doc, change this any time you change the intro,
             // so that it gets shown for users
